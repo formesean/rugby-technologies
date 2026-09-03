@@ -157,7 +157,9 @@ summary:focus-visible {
 }
 
 .mobile-menu-toggle {
-  position: relative;
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
   display: inline-flex;
   width: 2.75rem;
   height: 2.75rem;
@@ -168,11 +170,16 @@ summary:focus-visible {
   border-radius: 999px;
   background: var(--surface);
   color: var(--ink);
+  list-style: none;
   transition:
     color 160ms ease,
     border-color 160ms ease,
     background-color 160ms ease,
     transform 160ms ease;
+}
+
+.mobile-menu-toggle::-webkit-details-marker {
+  display: none;
 }
 
 .mobile-menu-toggle:hover {
@@ -202,31 +209,16 @@ summary:focus-visible {
   transform: translateY(6px);
 }
 
-.mobile-menu-toggle[aria-expanded="true"] .mobile-menu-icon {
+.mobile-menu[open] .mobile-menu-icon {
   transform: rotate(45deg);
 }
 
-.mobile-menu-toggle[aria-expanded="true"] .mobile-menu-icon::before {
+.mobile-menu[open] .mobile-menu-icon::before {
   transform: rotate(-90deg);
 }
 
 .mobile-menu-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition:
-    grid-template-rows 280ms cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 180ms ease;
-}
-
-.mobile-menu-panel[data-open="true"] {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-
-.mobile-menu-panel-inner {
-  min-height: 0;
-  overflow: hidden;
+  background: var(--canvas);
 }
 
 .mobile-menu-link {
@@ -557,31 +549,6 @@ summary:focus-visible {
   padding-inline: 0.5rem;
 }
 
-.faq-answer {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 280ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.faq-answer-inner {
-  min-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-0.5rem);
-  transition:
-    opacity 180ms ease,
-    transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.faq-item[data-state="open"] .faq-answer {
-  grid-template-rows: 1fr;
-}
-
-.faq-item[data-state="open"] .faq-answer-inner {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .faq-icon {
   position: relative;
   display: block;
@@ -607,7 +574,7 @@ summary:focus-visible {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.faq-item[data-state="open"] .faq-icon::after {
+.faq-item[open] .faq-icon::after {
   transform: translate(-50%, -50%) rotate(0deg);
 }
 
@@ -685,6 +652,10 @@ summary:focus-visible {
   .site-header-inner {
     padding-inline: 1rem;
   }
+
+  .mobile-menu-toggle {
+    right: 1rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -708,9 +679,7 @@ summary:focus-visible {
   html body .process-card,
   html body .faq-icon::before,
   html body .faq-icon::after,
-  html body .faq-trigger,
-  html body .faq-answer,
-  html body .faq-answer-inner {
+  html body .faq-trigger {
     transition: none;
   }
 
@@ -721,7 +690,6 @@ summary:focus-visible {
   html body .mobile-menu-toggle,
   html body .mobile-menu-icon,
   html body .mobile-menu-icon::before,
-  html body .mobile-menu-panel,
   html body .mobile-menu-link {
     transition: none;
   }
@@ -731,7 +699,7 @@ summary:focus-visible {
     clip-path: inset(0 0 0 0);
   }
 
-  html body .scroll-top-icon {
+  html body .scroll-top-button[data-visible="true"] .scroll-top-icon {
     animation: none;
     transition: none;
   }

@@ -39,12 +39,12 @@ function RugbyMark() {
 
 export function SiteHeader({ emailHref }: SiteHeaderProps) {
   const [isHidden, setIsHidden] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const lastScrollY = useRef(0);
   const animationFrame = useRef<number | null>(null);
-  const menuButton = useRef<HTMLButtonElement | null>(null);
+  const mobileMenu = useRef<HTMLDetailsElement | null>(null);
+  const menuButton = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const updateScrollState = () => {
@@ -64,7 +64,7 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
       setScrollProgress(Math.round(progress));
       setIsScrollTopVisible(currentScrollY >= window.innerHeight);
 
-      if (isMenuOpen || currentScrollY <= HIDE_AFTER_SCROLL_Y) {
+      if (mobileMenu.current?.open || currentScrollY <= HIDE_AFTER_SCROLL_Y) {
         setIsHidden(false);
       } else if (Math.abs(directionDelta) >= DIRECTION_THRESHOLD) {
         setIsHidden(directionDelta > 0);
@@ -82,7 +82,7 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
 
     const handleResize = () => {
       if (window.innerWidth >= 640) {
-        setIsMenuOpen(false);
+        mobileMenu.current?.removeAttribute("open");
       }
       scheduleScrollStateUpdate();
     };
@@ -101,16 +101,12 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
         window.cancelAnimationFrame(animationFrame.current);
       }
     };
-  }, [isMenuOpen]);
+  }, []);
 
   useEffect(() => {
-    if (!isMenuOpen) {
-      return;
-    }
-
     const closeMenuOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMenuOpen(false);
+      if (event.key === "Escape" && mobileMenu.current?.open) {
+        mobileMenu.current.removeAttribute("open");
         menuButton.current?.focus();
       }
     };
@@ -120,7 +116,7 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
         event.target instanceof Element &&
         event.target.closest("#mobile-navigation a, .site-brand")
       ) {
-        setIsMenuOpen(false);
+        mobileMenu.current?.removeAttribute("open");
       }
     };
 
@@ -130,7 +126,7 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
       document.removeEventListener("keydown", closeMenuOnEscape);
       document.removeEventListener("click", closeMenuAfterNavigation);
     };
-  }, [isMenuOpen]);
+  }, []);
 
   return (
     <>
@@ -174,25 +170,16 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
           >
             Start Your Project <span aria-hidden="true">↗</span>
           </a>
-          <button
+        </div>
+        <details ref={mobileMenu} className="mobile-menu sm:hidden">
+          <summary
             ref={menuButton}
-            type="button"
             className="mobile-menu-toggle"
-            aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
-            aria-controls="mobile-navigation"
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-label="Toggle navigation"
           >
             <span className="mobile-menu-icon" aria-hidden="true" />
-          </button>
-        </div>
-        <div
-          id="mobile-navigation"
-          className="mobile-menu-panel sm:hidden"
-          data-open={isMenuOpen}
-          inert={!isMenuOpen}
-        >
-          <div className="mobile-menu-panel-inner">
+          </summary>
+          <div id="mobile-navigation" className="mobile-menu-panel">
             <nav
               aria-label="Mobile navigation"
               className="mx-auto grid max-w-6xl gap-1 px-5 pt-2 pb-5"
@@ -211,7 +198,7 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
               </a>
             </nav>
           </div>
-        </div>
+        </details>
       </header>
       <div className="nav-rail" data-visible={isHidden} aria-hidden="true">
         <div className="nav-progress-track" aria-hidden="true">
