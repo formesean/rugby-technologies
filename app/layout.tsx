@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/opengraph-image",
+        url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Rugby Technologies. Technology that works for you.",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/opengraph-image"],
+    images: ["/opengraph-image.jpg"],
   },
 };
 
