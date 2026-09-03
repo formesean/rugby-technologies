@@ -40,6 +40,7 @@ function RugbyMark() {
 export function SiteHeader({ emailHref }: SiteHeaderProps) {
   const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const lastScrollY = useRef(0);
   const animationFrame = useRef<number | null>(null);
@@ -61,6 +62,7 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
       const directionDelta = currentScrollY - lastScrollY.current;
 
       setScrollProgress(Math.round(progress));
+      setIsScrollTopVisible(currentScrollY >= window.innerHeight);
 
       if (isMenuOpen || currentScrollY <= HIDE_AFTER_SCROLL_Y) {
         setIsHidden(false);
@@ -219,6 +221,22 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
           />
         </div>
       </div>
+      <a
+        className="scroll-top-button"
+        data-visible={isScrollTopVisible}
+        href="#top"
+      >
+        <span className="sr-only">Scroll to top</span>
+        <svg
+          aria-hidden="true"
+          className="scroll-top-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path d="M4 11.2 20 4l-7.2 16-2.1-6.7L4 11.2Z" fill="currentColor" />
+          <path d="m10.7 13.3 4.2-4.2" stroke="#17191f" strokeWidth="1.5" />
+        </svg>
+      </a>
     </>
   );
 }
