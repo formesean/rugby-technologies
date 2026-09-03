@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt =
-  "Rugby Technologies — Practical technology, built around your business.";
+export const alt = "Rugby Technologies. Technology that works for you.";
 export const size = {
   width: 1200,
   height: 630,
@@ -107,7 +106,7 @@ export default function Image() {
           lineHeight: 1.04,
         }}
       >
-        Practical technology, built around your business.
+        Technology that works for you.
       </div>
       <div
         style={{

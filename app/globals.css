@@ -405,36 +405,6 @@ summary:focus-visible {
   box-shadow: 0 24px 60px color-mix(in srgb, var(--ink) 10%, transparent);
 }
 
-.tech-chip {
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
-  padding: 0.65rem 1rem;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.8125rem;
-  font-weight: 650;
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease,
-    background-color 160ms ease;
-}
-
-.tech-chip:hover {
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--accent) 16%, transparent);
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--ink) 9%, transparent);
-}
-
-.tech-chip-lime {
-  border-color: color-mix(in srgb, var(--lime) 70%, var(--ink));
-  background: color-mix(in srgb, var(--lime) 24%, transparent);
-}
-
-.tech-chip-coral {
-  border-color: color-mix(in srgb, var(--coral) 55%, transparent);
-  background: color-mix(in srgb, var(--coral) 14%, transparent);
-}
-
 .faq-trigger {
   border: 0;
   background: transparent;
@@ -556,7 +526,6 @@ summary:focus-visible {
   html body .nav-link,
   html body .service-card,
   html body .process-card,
-  html body .tech-chip,
   html body .faq-icon::before,
   html body .faq-icon::after,
   html body .faq-trigger,

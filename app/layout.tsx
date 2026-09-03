@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://rugbyworks.tech";
 const siteTitle = "Rugby Technologies | Websites, Software & Automation";
 const siteDescription =
-  "Practical websites, custom software, workflow automation, and IT consulting for startups, small businesses, nonprofits, and organizations in the Philippines and worldwide.";
+  "Quality websites, software, and automation with dependable delivery and direct accountability for growing organizations worldwide.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Rugby Technologies — Practical technology, built around your business.",
+        alt: "Rugby Technologies. Technology that works for you.",
       },
     ],
   },
