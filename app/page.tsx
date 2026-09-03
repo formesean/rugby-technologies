@@ -1,3 +1,6 @@
+import { FaqItem } from "./components/faq-item";
+import { SiteHeader } from "./components/site-header";
+
 const services = [
   {
     number: "01",
@@ -132,30 +135,7 @@ export default function Home() {
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-40 border-b border-ink/10 bg-canvas/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
-          <a href="#top" className="text-lg font-bold tracking-tight">
-            Rugby <span className="text-accent">Technologies</span>
-          </a>
-          <nav
-            aria-label="Primary navigation"
-            className="order-3 flex w-full items-center justify-center gap-5 text-sm font-medium sm:order-none sm:w-auto"
-          >
-            <a className="nav-link" href="#services">
-              Services
-            </a>
-            <a className="nav-link" href="#approach">
-              Approach
-            </a>
-            <a className="nav-link" href="#faq">
-              FAQ
-            </a>
-          </nav>
-          <a className="button button-primary" href={emailHref}>
-            Start Your Project <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </header>
+      <SiteHeader emailHref={emailHref} />
       <main id="main">
         <section className="relative isolate min-h-[calc(100svh-5rem)] overflow-hidden border-b border-ink/10">
           <div
@@ -258,7 +238,7 @@ export default function Home() {
               {process.map((step) => (
                 <li
                   key={step.number}
-                  className="rounded-[2rem] border border-ink/10 bg-canvas p-7 sm:p-9"
+                  className="process-card rounded-[2rem] border border-ink/10 bg-canvas p-7 sm:p-9"
                 >
                   <div className="flex size-12 items-center justify-center rounded-full bg-accent font-mono text-sm font-bold text-white">
                     {step.number}
@@ -305,18 +285,11 @@ export default function Home() {
             </div>
             <div className="border-t border-ink/15">
               {faqs.map((faq) => (
-                <details
+                <FaqItem
                   key={faq.question}
-                  className="faq-item border-b border-ink/15"
-                >
-                  <summary className="flex min-h-20 cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-bold">
-                    {faq.question}
-                    <span className="faq-icon" aria-hidden="true" />
-                  </summary>
-                  <p className="max-w-2xl pb-6 leading-7 text-ink-muted">
-                    {faq.answer}
-                  </p>
-                </details>
+                  question={faq.question}
+                  answer={faq.answer}
+                />
               ))}
             </div>
           </div>
