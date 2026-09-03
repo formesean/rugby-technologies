@@ -132,13 +132,13 @@ export default function Home() {
             aria-hidden="true"
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(110deg,var(--color-canvas)_15%,transparent_70%)]" />
-          <div aria-hidden="true">
+          <div className="hero-art" aria-hidden="true">
             <span className="hero-shape hero-shape-blue" />
             <span className="hero-shape hero-shape-lime" />
             <span className="hero-shape hero-shape-coral" />
           </div>
           <div className="mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl items-center px-5 py-20 sm:px-8 sm:py-28">
-            <div className="max-w-4xl">
+            <div className="hero-copy max-w-4xl">
               <p className="eyebrow">
                 Websites • Software • Automation • Consulting
               </p>
