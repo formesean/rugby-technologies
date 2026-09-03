@@ -38,6 +38,19 @@ body {
   color: var(--ink);
 }
 
+.page-shell {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding-inline: 2rem;
+  }
+}
+
 a,
 summary {
   outline: none;
@@ -159,7 +172,7 @@ summary:focus-visible {
 .mobile-menu-toggle {
   position: absolute;
   top: 0.75rem;
-  right: 1.25rem;
+  right: 1.5rem;
   display: inline-flex;
   width: 2.75rem;
   height: 2.75rem;
@@ -232,11 +245,6 @@ summary:focus-visible {
   transition:
     color 160ms ease,
     padding-inline 180ms ease;
-}
-
-.mobile-menu-link::after {
-  content: "↘";
-  color: var(--accent);
 }
 
 .mobile-menu-link:hover {

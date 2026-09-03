@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowIcon } from "./arrow-icon";
 import { SiteFooter } from "./site-footer";
 
 type LegalPageProps = {
@@ -16,18 +17,19 @@ export function LegalPage({ children, description, title }: LegalPageProps) {
       >
         Skip to content
       </a>
-      <header className="border-b border-ink/10 px-5 py-4 sm:px-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+      <header className="border-b border-ink/10 py-4">
+        <div className="page-shell flex items-center justify-between gap-4">
           <a href="/" className="text-lg font-bold tracking-tight">
             Rugby <span className="text-accent">Technologies</span>
           </a>
           <a className="nav-link text-sm font-semibold" href="/">
-            Back home <span aria-hidden="true">↗</span>
+            Back home
+            <ArrowIcon className="ml-2 size-4 shrink-0" />
           </a>
         </div>
       </header>
 
-      <main id="main" className="px-5 py-16 sm:px-8 sm:py-24">
+      <main id="main" className="page-shell py-16 sm:py-24">
         <article className="legal-copy mx-auto max-w-3xl">
           <p className="eyebrow text-accent">Legal</p>
           <h1 className="mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-6xl">

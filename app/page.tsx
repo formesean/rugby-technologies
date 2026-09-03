@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./components/arrow-icon";
 import { FaqItem } from "./components/faq-item";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
@@ -137,7 +138,7 @@ export default function Home() {
             <span className="hero-shape hero-shape-lime" />
             <span className="hero-shape hero-shape-coral" />
           </div>
-          <div className="mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl items-center px-5 py-20 sm:px-8 sm:py-28">
+          <div className="page-shell flex min-h-[calc(100svh-5rem)] items-center py-20 sm:py-28">
             <div className="hero-copy max-w-4xl">
               <p className="eyebrow">
                 Websites • Software • Automation • Consulting
@@ -153,20 +154,19 @@ export default function Home() {
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <a className="button button-primary" href={emailHref}>
-                  Start Your Project <span aria-hidden="true">↗</span>
+                  Start Your Project
+                  <ArrowIcon className="size-4 shrink-0" />
                 </a>
                 <a className="button button-secondary" href="#services">
-                  Explore Services <span aria-hidden="true">↓</span>
+                  Explore Services
+                  <ArrowIcon className="size-4 shrink-0 rotate-[135deg]" />
                 </a>
               </div>
             </div>
           </div>
         </section>
-        <section
-          id="services"
-          className="scroll-mt-32 px-5 py-24 sm:px-8 sm:py-32"
-        >
-          <div className="mx-auto max-w-6xl">
+        <section id="services" className="scroll-mt-32 py-24 sm:py-32">
+          <div className="page-shell">
             <p className="eyebrow">What we do</p>
             <h2 className="section-heading max-w-4xl">
               Useful technology. Less friction.
@@ -175,7 +175,7 @@ export default function Home() {
               {services.map((service) => (
                 <article
                   key={service.number}
-                  className="service-card rounded-[2rem] border border-ink/10 bg-surface p-7 sm:p-9"
+                  className="service-card rounded-[2rem] border border-ink/10 bg-surface p-6 sm:p-8"
                 >
                   <p className="font-mono text-sm font-semibold text-accent">
                     {service.number}
@@ -193,9 +193,9 @@ export default function Home() {
         </section>
         <section
           id="approach"
-          className="scroll-mt-28 bg-ink px-5 py-24 text-white sm:px-8 sm:py-32"
+          className="scroll-mt-28 bg-ink py-24 text-white sm:py-32"
         >
-          <div className="mx-auto max-w-6xl">
+          <div className="page-shell">
             <p className="eyebrow text-lime">How we work</p>
             <h2 className="section-heading max-w-3xl text-white">
               Clear from start to finish.
@@ -218,15 +218,15 @@ export default function Home() {
             </ol>
           </div>
         </section>
-        <section className="bg-surface px-5 py-24 sm:px-8 sm:py-32">
-          <div className="mx-auto max-w-6xl">
+        <section className="bg-surface py-24 sm:py-32">
+          <div className="page-shell">
             <p className="eyebrow">The process</p>
             <h2 className="section-heading max-w-3xl">From idea to launch.</h2>
             <ol className="mt-14 grid gap-6 lg:grid-cols-3">
               {process.map((step) => (
                 <li
                   key={step.number}
-                  className="process-card rounded-[2rem] border border-ink/10 bg-canvas p-7 sm:p-9"
+                  className="process-card rounded-[2rem] border border-ink/10 bg-canvas p-6 sm:p-8"
                 >
                   <div className="flex size-12 items-center justify-center rounded-full bg-accent font-mono text-sm font-bold text-white">
                     {step.number}
@@ -240,8 +240,8 @@ export default function Home() {
             </ol>
           </div>
         </section>
-        <section id="faq" className="scroll-mt-28 px-5 py-24 sm:px-8 sm:py-32">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.75fr_1.25fr]">
+        <section id="faq" className="scroll-mt-28 py-24 sm:py-32">
+          <div className="page-shell grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <p className="eyebrow">Questions, answered</p>
               <h2 className="section-heading">
@@ -259,8 +259,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="px-5 pb-5 sm:px-8 sm:pb-8">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-accent px-6 py-20 text-white sm:px-12 sm:py-24 lg:px-16">
+        <section className="page-shell pb-6 sm:pb-8">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-accent p-8 text-white sm:p-12 sm:py-24 lg:px-16">
             <div
               className="absolute -top-16 -right-12 size-56 rounded-full border-[2.5rem] border-lime/80"
               aria-hidden="true"
@@ -280,7 +280,8 @@ export default function Home() {
                   className="button bg-white text-ink hover:bg-lime"
                   href={emailHref}
                 >
-                  Start Your Project <span aria-hidden="true">↗</span>
+                  Start Your Project
+                  <ArrowIcon className="size-4 shrink-0" />
                 </a>
                 <a
                   className="rounded-md font-mono text-sm text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"

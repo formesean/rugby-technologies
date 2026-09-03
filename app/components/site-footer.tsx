@@ -14,14 +14,14 @@ const legalLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer relative isolate overflow-hidden border-t border-ink/10 bg-ink px-5 py-7 text-sm text-white sm:px-8 sm:py-12 md:py-18 md:text-base">
+    <footer className="site-footer relative isolate overflow-hidden border-t border-ink/10 bg-ink py-12 text-sm text-white sm:py-14 md:py-18 md:text-base">
       <div aria-hidden="true">
         <span className="footer-shape footer-shape-blue" />
         <span className="footer-shape footer-shape-lime" />
         <span className="footer-shape footer-shape-coral" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-4 sm:gap-y-8 md:grid-cols-[1.5fr_0.7fr_0.9fr_1.1fr] md:gap-12">
+      <div className="page-shell relative grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-[1.5fr_0.7fr_0.9fr_1.1fr] md:gap-12">
         <div className="col-span-2 max-w-sm md:col-span-1">
           <a href="/" className="text-xl font-bold tracking-tight">
             Rugby <span className="text-lime">Technologies</span>
@@ -49,7 +49,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="relative mx-auto mt-5 flex max-w-6xl flex-col gap-1 border-t border-white/15 pt-4 text-xs text-white/55 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:text-sm md:mt-14 md:gap-3 md:pt-6">
+      <div className="page-shell relative mt-10 flex flex-col gap-1 border-t border-white/15 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between sm:text-sm md:mt-14 md:gap-3 md:pt-6">
         <p>© 2026 Rugby Technologies. All rights reserved.</p>
         <p className="hidden sm:block">
           Practical technology. Clear accountability.

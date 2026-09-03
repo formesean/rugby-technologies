@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ArrowIcon } from "./arrow-icon";
 
 const HIDE_AFTER_SCROLL_Y = 72;
 const DIRECTION_THRESHOLD = 6;
@@ -134,7 +135,7 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
         className="site-header sticky top-0 z-40 border-b border-ink/10 bg-canvas/90 backdrop-blur-xl"
         data-hidden={isHidden}
       >
-        <div className="site-header-inner mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:px-8 sm:py-4">
+        <div className="page-shell site-header-inner flex items-center justify-between gap-4 py-3 sm:py-4">
           <a
             href="#top"
             className="site-brand flex min-w-0 items-center gap-2 text-base font-bold tracking-tight sm:text-lg"
@@ -168,7 +169,8 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
             className="site-header-cta button button-primary hidden shrink-0 sm:inline-flex"
             href={emailHref}
           >
-            Start Your Project <span aria-hidden="true">↗</span>
+            Start Your Project
+            <ArrowIcon className="size-4 shrink-0" />
           </a>
         </div>
         <details ref={mobileMenu} className="mobile-menu sm:hidden">
@@ -182,19 +184,23 @@ export function SiteHeader({ emailHref }: SiteHeaderProps) {
           <div id="mobile-navigation" className="mobile-menu-panel">
             <nav
               aria-label="Mobile navigation"
-              className="mx-auto grid max-w-6xl gap-1 px-5 pt-2 pb-5"
+              className="page-shell grid gap-1 pt-3 pb-6"
             >
               <a className="mobile-menu-link" href="#services">
                 Services
+                <ArrowIcon className="size-4 shrink-0 rotate-90 text-accent" />
               </a>
               <a className="mobile-menu-link" href="#approach">
                 Approach
+                <ArrowIcon className="size-4 shrink-0 rotate-90 text-accent" />
               </a>
               <a className="mobile-menu-link" href="#faq">
                 FAQ
+                <ArrowIcon className="size-4 shrink-0 rotate-90 text-accent" />
               </a>
               <a className="button button-primary mt-2 w-full" href={emailHref}>
-                Start Your Project <span aria-hidden="true">↗</span>
+                Start Your Project
+                <ArrowIcon className="size-4 shrink-0" />
               </a>
             </nav>
           </div>
