@@ -1,4 +1,5 @@
 import { FaqItem } from "./components/faq-item";
+import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
 
 const services = [
@@ -292,14 +293,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="px-5 py-9 sm:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Rugby Technologies</p>
-          <a className="nav-link" href={`mailto:${email}`}>
-            {email}
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
