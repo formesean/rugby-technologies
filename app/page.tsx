@@ -1,48 +1,54 @@
+import { FaqItem } from "./components/faq-item";
+import { SiteFooter } from "./components/site-footer";
+import { SiteHeader } from "./components/site-header";
+
 const services = [
   {
     number: "01",
     title: "Websites",
     description:
-      "Fast, responsive websites that explain your work clearly and make it easy for customers to take the next step.",
+      "Fast, responsive websites with clear structure, polished presentation, and reliable performance across modern devices.",
   },
   {
     number: "02",
     title: "Custom Software",
     description:
-      "Purpose-built web applications that replace awkward processes and fit the way your organization actually works.",
+      "Purpose-built web applications with dependable functionality, maintainable code, and clear ownership of agreed requirements.",
   },
   {
     number: "03",
     title: "Automation",
     description:
-      "Connected tools and reliable workflows that reduce repetitive work, manual handoffs, and avoidable errors.",
+      "Reliable automations that reduce repetitive work, improve consistency, and keep important processes easy to understand and manage.",
   },
   {
     number: "04",
     title: "IT Consulting",
     description:
-      "Practical guidance on technology choices, system improvements, integrations, and the clearest path from idea to launch.",
+      "Practical technology guidance with clear recommendations, documented decisions, realistic expectations, and accountability for the agreed direction.",
   },
 ] as const;
 
 const principles = [
   {
     title: "Clear communication",
-    description: "Direct updates and explanations without unnecessary jargon.",
+    description:
+      "Direct updates, honest explanations, and early notice when a decision or risk needs attention.",
   },
   {
     title: "Practical delivery",
-    description: "Technology choices follow the business need, not trends.",
+    description:
+      "Technology choices must solve a real need, support your goals, and justify their cost.",
   },
   {
     title: "Accessible partnership",
     description:
-      "Scope and pricing stay understandable for smaller organizations.",
+      "Scope, pricing, responsibilities, and deliverables remain clear throughout the project.",
   },
   {
     title: "Built for the long term",
     description:
-      "Solutions should remain reliable, maintainable, and useful after launch.",
+      "Solutions are reliable, maintainable, documented where needed, and useful after launch.",
   },
 ] as const;
 
@@ -51,71 +57,57 @@ const process = [
     number: "01",
     title: "Understand",
     description:
-      "Clarify the problem, users, constraints, and most valuable first release.",
+      "Define the problem, users, priorities, constraints, and requirements for the first useful release.",
   },
   {
     number: "02",
     title: "Build",
     description:
-      "Work in focused milestones with clear communication and visible progress.",
+      "Deliver focused milestones with visible progress, quality checks, and clear updates.",
   },
   {
     number: "03",
-    title: "Launch & support",
+    title: "Launch and support",
     description:
-      "Release carefully, document the result, and agree on any continuing support.",
+      "Release carefully with agreed documentation, handoff details, and support options.",
   },
-] as const;
-
-const technologies = [
-  "Next.js",
-  "TypeScript",
-  "React",
-  "Node.js",
-  "PostgreSQL",
-  "Supabase",
-  "REST APIs",
-  "Docker",
-  "Google Cloud",
-  "Make.com",
-  "Xano",
 ] as const;
 
 const faqs = [
   {
     question: "What can Rugby Technologies build?",
     answer:
-      "Websites, custom web applications, workflow automations, system integrations, and practical technology improvements shaped around a real business need.",
+      "Websites, web apps, automations, integrations, and practical improvements built around your needs.",
   },
   {
     question: "Who do you work with?",
     answer:
-      "Startups, small businesses, nonprofits, communities, and organizations that want a clear, dependable technology partner.",
+      "Startups, small businesses, nonprofits, communities, and growing organizations.",
   },
   {
     question: "How long does a project take?",
     answer:
-      "Every project is different. After a short discovery conversation, you will receive a recommended scope, milestones, and a realistic timeline.",
+      "Timelines depend on scope. After discovery, you receive clear milestones and a realistic schedule.",
   },
   {
     question: "How does pricing work?",
     answer:
-      "Pricing depends on scope, complexity, and support needs. You will receive a clear proposal before project work begins.",
+      "Pricing reflects scope, complexity, and support. You receive a clear proposal before work begins.",
   },
   {
     question: "Can you improve or connect existing systems?",
     answer:
-      "Yes. Rugby Technologies can review an existing setup, improve a workflow, and connect tools through APIs and automation where appropriate.",
+      "Yes. We can improve existing workflows and connect tools through APIs and automation.",
   },
   {
     question: "Do you work with clients outside the Philippines?",
     answer:
-      "Yes. Projects can be delivered remotely for clients in the Philippines and worldwide.",
+      "Yes. We work remotely with clients in the Philippines and worldwide.",
   },
   {
     question: "What happens after launch?",
     answer:
-      "The project includes an agreed handoff, documentation where needed, and optional continuing support based on the scope.",
+      "You receive a clear handoff, useful documentation, and optional ongoing support.",
   },
 ] as const;
 
@@ -132,30 +124,7 @@ export default function Home() {
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-40 border-b border-ink/10 bg-canvas/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
-          <a href="#top" className="text-lg font-bold tracking-tight">
-            Rugby <span className="text-accent">Technologies</span>
-          </a>
-          <nav
-            aria-label="Primary navigation"
-            className="order-3 flex w-full items-center justify-center gap-5 text-sm font-medium sm:order-none sm:w-auto"
-          >
-            <a className="nav-link" href="#services">
-              Services
-            </a>
-            <a className="nav-link" href="#approach">
-              Approach
-            </a>
-            <a className="nav-link" href="#faq">
-              FAQ
-            </a>
-          </nav>
-          <a className="button button-primary" href={emailHref}>
-            Start Your Project <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </header>
+      <SiteHeader emailHref={emailHref} />
       <main id="main">
         <section className="relative isolate min-h-[calc(100svh-5rem)] overflow-hidden border-b border-ink/10">
           <div
@@ -163,23 +132,24 @@ export default function Home() {
             aria-hidden="true"
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(110deg,var(--color-canvas)_15%,transparent_70%)]" />
-          <div aria-hidden="true">
+          <div className="hero-art" aria-hidden="true">
             <span className="hero-shape hero-shape-blue" />
             <span className="hero-shape hero-shape-lime" />
             <span className="hero-shape hero-shape-coral" />
           </div>
           <div className="mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl items-center px-5 py-20 sm:px-8 sm:py-28">
-            <div className="max-w-4xl">
+            <div className="hero-copy max-w-4xl">
               <p className="eyebrow">
                 Websites • Software • Automation • Consulting
               </p>
               <h1 className="mt-6 max-w-4xl text-balance text-5xl leading-[0.95] font-bold tracking-[-0.055em] sm:text-7xl lg:text-[6.75rem]">
-                Practical technology, built around your business.
+                Technology that works for you.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-ink-muted sm:text-xl">
-                Rugby Technologies helps startups, small businesses, nonprofits,
-                and organizations turn ideas and repetitive work into clear,
-                reliable digital solutions—across the Philippines and worldwide.
+                We build quality websites, software, and automation for growing
+                organizations. Every project includes clear communication,
+                dependable delivery, maintainable solutions, and direct
+                accountability.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <a className="button button-primary" href={emailHref}>
@@ -199,7 +169,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <p className="eyebrow">What we do</p>
             <h2 className="section-heading max-w-4xl">
-              Useful technology, without the unnecessary complexity.
+              Useful technology. Less friction.
             </h2>
             <div className="mt-14 grid gap-5 md:grid-cols-2">
               {services.map((service) => (
@@ -228,7 +198,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <p className="eyebrow text-lime">How we work</p>
             <h2 className="section-heading max-w-3xl text-white">
-              A straightforward way to build.
+              Clear from start to finish.
             </h2>
             <ol className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2">
               {principles.map((principle, index) => (
@@ -251,14 +221,12 @@ export default function Home() {
         <section className="bg-surface px-5 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto max-w-6xl">
             <p className="eyebrow">The process</p>
-            <h2 className="section-heading max-w-3xl">
-              From problem to useful solution.
-            </h2>
+            <h2 className="section-heading max-w-3xl">From idea to launch.</h2>
             <ol className="mt-14 grid gap-6 lg:grid-cols-3">
               {process.map((step) => (
                 <li
                   key={step.number}
-                  className="rounded-[2rem] border border-ink/10 bg-canvas p-7 sm:p-9"
+                  className="process-card rounded-[2rem] border border-ink/10 bg-canvas p-7 sm:p-9"
                 >
                   <div className="flex size-12 items-center justify-center rounded-full bg-accent font-mono text-sm font-bold text-white">
                     {step.number}
@@ -272,51 +240,21 @@ export default function Home() {
             </ol>
           </div>
         </section>
-        <section className="border-y border-ink/10 px-5 py-20 sm:px-8">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-              <div>
-                <p className="eyebrow">Capabilities</p>
-                <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
-                  A production-ready toolkit.
-                </h2>
-              </div>
-              <ul
-                className="flex flex-wrap gap-3"
-                aria-label="Technology capabilities"
-              >
-                {technologies.map((technology, index) => (
-                  <li
-                    key={technology}
-                    className={`tech-chip ${index % 3 === 1 ? "tech-chip-lime" : ""} ${index % 3 === 2 ? "tech-chip-coral" : ""}`}
-                  >
-                    {technology}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
         <section id="faq" className="scroll-mt-28 px-5 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <p className="eyebrow">Questions, answered</p>
-              <h2 className="section-heading">Frequently asked questions.</h2>
+              <h2 className="section-heading">
+                Good questions. Clear answers.
+              </h2>
             </div>
             <div className="border-t border-ink/15">
               {faqs.map((faq) => (
-                <details
+                <FaqItem
                   key={faq.question}
-                  className="faq-item border-b border-ink/15"
-                >
-                  <summary className="flex min-h-20 cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-bold">
-                    {faq.question}
-                    <span className="faq-icon" aria-hidden="true" />
-                  </summary>
-                  <p className="max-w-2xl pb-6 leading-7 text-ink-muted">
-                    {faq.answer}
-                  </p>
-                </details>
+                  question={faq.question}
+                  answer={faq.answer}
+                />
               ))}
             </div>
           </div>
@@ -330,12 +268,12 @@ export default function Home() {
             <div className="relative max-w-3xl">
               <p className="eyebrow text-white">Start a conversation</p>
               <h2 className="mt-6 text-balance text-4xl leading-tight font-bold tracking-tight sm:text-6xl">
-                Have a problem technology could make simpler?
+                Let&apos;s make work simpler.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white">
-                Tell Rugby Technologies what you are trying to improve. We will
-                start with the problem and find the smallest useful path
-                forward.
+                Share the problem, goal, or process that needs improvement. You
+                will receive a clear recommendation, realistic scope, and
+                accountable next steps.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-5">
                 <a
@@ -355,14 +293,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="px-5 py-9 sm:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Rugby Technologies</p>
-          <a className="nav-link" href={`mailto:${email}`}>
-            {email}
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

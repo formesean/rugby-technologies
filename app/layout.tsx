@@ -13,10 +13,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://rugbyworks.tech";
+const siteTitle = "Rugby Technologies | Websites, Software & Automation";
+const siteDescription =
+  "Quality websites, software, and automation with dependable delivery and direct accountability for growing organizations worldwide.";
+
 export const metadata: Metadata = {
-  title: "Rugby Technologies | Websites, Software & Automation",
-  description:
-    "Practical websites, custom software, workflow automation, and IT consulting for startups, small businesses, nonprofits, and organizations in the Philippines and worldwide.",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_PH",
+    url: siteUrl,
+    siteName: "Rugby Technologies",
+    title: siteTitle,
+    description: siteDescription,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Rugby Technologies. Technology that works for you.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
